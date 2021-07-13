@@ -97,7 +97,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version1
                 {
                     DBControllerTask.DeleteListDBSqlServer(insert);
                 }
-                if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
+                else if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
                 {
                     DBControllerTask.DeleteListDBSqlLite(insert);
                 }
@@ -111,6 +111,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version1
             if (Option == 2)
             {
                 Console.Clear();
+                
                 if (ConfigurationManager.AppSettings["DBSelected"] == "SqlServer")
                 {
                     DBControllerTask.DeleteCompleteTasksDBSqlServer(insert);
