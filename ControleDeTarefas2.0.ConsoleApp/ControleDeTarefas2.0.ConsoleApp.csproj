@@ -76,8 +76,8 @@
     <Compile Include="Version2\InsertContact.cs" />
     <Compile Include="Version2\ScreenContact.cs" />
     <Compile Include="Version3\DBCompromises.cs" />
-    <Compile Include="Version3\DBContactsWithCompromise.cs" />
     <Compile Include="Version3\DBControllerCompromise.cs" />
+    <Compile Include="Version3\DBControllerCompromiseAndContacts.cs" />
     <Compile Include="Version3\DBControllerLink.cs" />
     <Compile Include="Version3\DBLink.cs" />
     <Compile Include="Version3\InsertCompromise.cs" />

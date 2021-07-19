@@ -1,4 +1,5 @@
 ﻿using ControleDeTarefas2._0.ConsoleApp.Version1;
+using ControleDeTarefas2._0.ConsoleApp.Version2;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDeTarefas2._0.ConsoleApp.Version2
+namespace ControleDeTarefas2._0.ConsoleApp.Version3
 {
     class DBContact
     {

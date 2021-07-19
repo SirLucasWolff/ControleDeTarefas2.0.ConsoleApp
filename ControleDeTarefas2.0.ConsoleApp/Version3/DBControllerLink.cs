@@ -9,10 +9,8 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
 {
     class DBControllerLink
     {
-        internal static void InsertDBSqlServer()
+        internal static void InsertDBSqlServer(InsertLink link)
         {
-            InsertLink link = new InsertLink();
-
             Console.WriteLine("Put the link:");
             link.Link = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -56,10 +54,8 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
             connectionWithLink.Close();
         }
 
-        internal static void InsertDBSqlLite()
+        internal static void InsertDBSqlLite(InsertLink link)
         {
-            InsertLink link = new InsertLink();
-
             SqLiteGet.DbConnection();
 
             using (var cmd = SqLiteGet.DbConnection().CreateCommand())
@@ -73,7 +69,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
                     @Link
                     )";
 
-                cmd.Parameters.AddWithValue("@Subject", link.Link);
+                cmd.Parameters.AddWithValue("@Link", link.Link);
 
                 Object id = cmd.ExecuteScalar();
                 object Id = Convert.ToInt32(id);

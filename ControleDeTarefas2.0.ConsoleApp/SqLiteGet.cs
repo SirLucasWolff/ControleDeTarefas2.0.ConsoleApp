@@ -17,32 +17,5 @@ namespace ControleDeTarefas2._0.ConsoleApp
             sqliteConnection.Open();
             return sqliteConnection;
         }
-
-        public static void Add()
-        {
-
-
-            using (var cmd = DbConnection().CreateCommand())
-            {
-                cmd.CommandText = @"INSERT INTO DBTASK 
-                    (
-                    [Task],
-                    [Creation Date],
-                    [Conclusion Date],
-                    [Importance Level],
-                    [Conclusion Percent]
-                    )
-                    VALUES 
-                    (
-                    @Task,
-                    @CreationDate,
-                    @ConclusionDate,
-                    @ImportanceLevel,
-                    @ConclusionPercent
-                    )";
-
-
-            }
-        }
     }
 }

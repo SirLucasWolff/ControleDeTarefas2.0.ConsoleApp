@@ -12,6 +12,7 @@ namespace ControleDeTarefas2._0.ConsoleApp
         {
             Console.WriteLine("Choose the Sql before to start!");
             Console.ReadLine();
+            Console.Clear();
             ScreenStart.screenStart();
         }
     }

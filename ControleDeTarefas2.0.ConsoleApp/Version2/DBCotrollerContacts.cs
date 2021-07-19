@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDeTarefas2._0.ConsoleApp.Version2
+namespace ControleDeTarefas2._0.ConsoleApp.Version3
 {
     class DBCotrollerContacts
     {
@@ -91,6 +91,70 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version2
                 object Id = Convert.ToInt32(id);
 
             }
+        }
+
+        public static void ViewOnlyNameSqlLite(InsertContact contact)
+        {
+            SqLiteGet.DbConnection();
+
+            using (var cmd = SqLiteGet.DbConnection().CreateCommand())
+            {
+                cmd.CommandText = @"SELECT * FROM DBCONTACTS
+                                               ";
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = reader["Id"].ToString();
+                        contact.Name = reader["Name"].ToString();
+                        contact.Email = reader["Email"].ToString();
+                        contact.Phone = (int)reader["Phone"];
+                        contact.Firm = reader["Firm"].ToString();
+                        contact.Position = reader["Position"].ToString();
+                        Console.WriteLine($"| ID: {id}  | NAME: {contact.Name} |");
+                    }
+                }
+            }
+        }
+
+        public static void ViewOnlyNameSqlServer(InsertContact contact)
+        {
+            string AdressDBtask = @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBTarefas;Integrated Security=True;Pooling=False";
+
+            SqlConnection connectionWithContact = new SqlConnection();
+            connectionWithContact.ConnectionString = AdressDBtask;
+
+            connectionWithContact.Open();
+
+            SqlCommand commandGet = new SqlCommand();
+            commandGet.Connection = connectionWithContact;
+
+            string sqlGet =
+                @"SELECT * FROM DBCONTACTS
+                   ";
+
+            sqlGet +=
+                @"SELECT SCOPE_IDENTITY();";
+
+            commandGet.CommandText = sqlGet;
+
+            using (SqlDataReader oReader = commandGet.ExecuteReader())
+            {
+                while (oReader.Read())
+                {
+                    id = oReader["ID"].ToString();
+                    contact.Name = oReader["Name"].ToString();
+                    contact.Email = oReader["Email"].ToString();
+                    contact.Phone = (int)oReader["Phone"];
+                    contact.Firm = oReader["Firm"].ToString();
+                    contact.Position = oReader["Position"].ToString();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"| ID: {id}  |NOME: {contact.Name} |");
+                }
+            }
+            connectionWithContact.Close();
+            Console.ResetColor();
         }
 
         internal static void ViewDBSqlServer(InsertContact contact)

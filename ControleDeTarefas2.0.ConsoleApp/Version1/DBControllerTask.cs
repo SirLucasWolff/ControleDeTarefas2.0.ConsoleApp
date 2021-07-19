@@ -307,7 +307,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version1
                     insert.ImportanceLevel = oReader["Importance Level"].ToString();
                     ConclusionPercent = (int)oReader["Conclusion Percent"];
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"| ID: {id}  |TASK: {insert.NameOfTask} | CREATION DATE: {CreationDate} | CONCLUSION DATE: {insert.ConclusionDate} | IMPORTANCE LEVEL: {insert.ImportanceLevel} | CONCLUSION PERCENT: {ConclusionPercent} |");
+                    Console.WriteLine($"| ID: {id}  |TASK: {insert.NameOfTask} | CREATION DATE: {CreationDate.ToShortDateString()} | CONCLUSION DATE: {insert.ConclusionDate.ToShortDateString()} | IMPORTANCE LEVEL: {insert.ImportanceLevel} | CONCLUSION PERCENT: {ConclusionPercent}% |");
                 }
             }
             connectionWithTask.Close();
@@ -333,7 +333,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version1
                         insert.ConclusionDate = (DateTime)reader["Conclusion Date"];
                         insert.ImportanceLevel = reader["Importance Level"].ToString();
                         ConclusionPercent = (int)reader["Conclusion Percent"];
-                        Console.WriteLine($"| ID: {id}  |TASK: {insert.NameOfTask} | CREATION DATE: {CreationDate} | CONCLUSION DATE: {insert.ConclusionDate} | IMPORTANCE LEVEL: {insert.ImportanceLevel} | CONCLUSION PERCENT: {ConclusionPercent} |");
+                        Console.WriteLine($"| ID: {id}  |TASK: {insert.NameOfTask} | CREATION DATE: {CreationDate.ToShortDateString()} | CONCLUSION DATE: {insert.ConclusionDate.ToShortDateString()} | IMPORTANCE LEVEL: {insert.ImportanceLevel} | CONCLUSION PERCENT: {ConclusionPercent}% |");
                     }
                 }
 

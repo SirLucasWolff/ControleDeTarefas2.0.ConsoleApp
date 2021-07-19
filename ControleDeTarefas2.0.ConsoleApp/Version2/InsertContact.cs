@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleDeTarefas2._0.ConsoleApp.Version2
+namespace ControleDeTarefas2._0.ConsoleApp.Version3
 {
     public class InsertContact
     {
@@ -14,5 +14,6 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version2
         public string Firm { get; set; }
         public string Position { get; set; }
         public string id { get; set; }
+        
     }
 }

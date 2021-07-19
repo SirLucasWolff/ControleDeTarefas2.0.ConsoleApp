@@ -32,7 +32,6 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version1
             if (Option == 3)
             {
                 DBTasks.Edit();
-
             }
             if (Option == 4)
             {

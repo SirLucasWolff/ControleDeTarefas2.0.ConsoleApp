@@ -223,11 +223,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
             }
         }
 
-        internal static void InsertDBContactsSqlLite(InsertCompromise compromise)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         internal static void InsertDBContactsSqlServer(InsertContact contact, InsertCompromise compromise)
         {
             string AdressDBtask = @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBTarefas;Integrated Security=True;Pooling=False";
@@ -551,7 +547,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
             {
                 cmd.CommandText = @"DELETE FROM DBCOMPROMISE 
                                           WHERE [ID] = @Id";
-
+                cmd.Parameters.AddWithValue("@Id", id);
                 cmd.ExecuteNonQuery();
             }
         }

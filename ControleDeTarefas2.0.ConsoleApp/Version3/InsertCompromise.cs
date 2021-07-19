@@ -16,5 +16,6 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
         public string StartHour { get; set; }
         public string EndHour { get; set; }
         public string KindCompromise { get; set; }
+        public List<String> GetId = new List<string>();
     }
 }

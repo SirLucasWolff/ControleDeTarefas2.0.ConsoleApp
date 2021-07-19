@@ -12,7 +12,7 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
     class DBCompromises
     {
         public static int Option { get; private set; }
-
+       
         public static void InsertDB()
         {
             InsertCompromise compromise = new InsertCompromise();
@@ -66,15 +66,18 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
             Option = Convert.ToInt32(Console.ReadLine());
             if (Option == 1)
             {
+                InsertLink link = new InsertLink();
                 Console.Clear();
                 compromise.KindCompromise = "Remote";
+                Console.WriteLine("Put the link:");
+                link.Link = Console.ReadLine();
                 if (ConfigurationManager.AppSettings["DBSelected"] == "SqlServer")
                 {
-                    DBControllerLink.InsertDBSqlServer();
+                    DBControllerLink.InsertDBSqlServer(link);
                 }
                 if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
                 {
-                    DBControllerLink.InsertDBSqlLite();
+                    DBControllerLink.InsertDBSqlLite(link);
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Clear();
@@ -127,13 +130,30 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
                 InsertContact contact = new InsertContact();
                 if (ConfigurationManager.AppSettings["DBSelected"] == "SqlServer")
                 {
+                    DBCotrollerContacts.ViewOnlyNameSqlServer(contact);
+                    Console.WriteLine("Put the ID of name");
+                    contact.id = Console.ReadLine();
+                    compromise.GetId.Add(contact.id);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Check the list of contact in compromise menu");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
                     DBControllerCompromise.InsertDBContactsSqlServer(contact, compromise);
                 }
                 if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
                 {
-                    DBControllerCompromise.InsertDBContactsSqlLite(compromise);
+                    DBCotrollerContacts.ViewOnlyNameSqlLite(contact);
+                    Console.WriteLine("Put the ID of name");
+                    contact.id = Console.ReadLine();
+                    compromise.GetId.Add(contact.id);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Check the list of contact in compromise menu");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    
                 }
-                DBContactsWithCompromise.Add();
+                
             }
             if (Option == 2)
             {

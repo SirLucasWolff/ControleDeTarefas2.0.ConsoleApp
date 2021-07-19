@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
 
         public static void screenCompromise()
         {
+            
+
             Console.Clear();
             Console.WriteLine("Add a compromise = 1");
             Console.WriteLine("View the compromises = 2");
@@ -42,7 +45,19 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version3
             }
             if (Option == 5)
             {
-                DBContactsWithCompromise.Contact();
+                InsertCompromise compromise = new InsertCompromise();
+                InsertContact contact = new InsertContact();
+                if (ConfigurationManager.AppSettings["DBSelected"] == "SqlServer")
+                {
+                    DBControllerCompromiseAndContacts.ViewDBSqlServer(contact, compromise);
+                    Console.ReadLine();
+                }
+                if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
+                {
+                    DBControllerCompromiseAndContacts.ViewDBSqlLite(contact);
+                    Console.ReadLine();
+                }
+                
             }
             if (Option == 6)
             {

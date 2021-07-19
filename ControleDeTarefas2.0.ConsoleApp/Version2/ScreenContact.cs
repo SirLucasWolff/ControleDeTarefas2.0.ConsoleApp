@@ -23,19 +23,19 @@ namespace ControleDeTarefas2._0.ConsoleApp.Version2
 
             if (Option == 1)
             {
-                DBContact.Insert();
+                Version3.DBContact.Insert();
             }
             if (Option == 2)
             {
-                DBContact.View();
+                Version3.DBContact.View();
             }
             if (Option == 3)
             {
-                DBContact.Edit();
+                Version3.DBContact.Edit();
             }
             if (Option == 4)
             {
-                DBContact.Delete();
+                Version3.DBContact.Delete();
             }
             if (Option == 5)
             {

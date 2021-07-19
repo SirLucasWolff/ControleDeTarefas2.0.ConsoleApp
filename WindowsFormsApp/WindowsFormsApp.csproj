@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F491AED4-7C1A-4229-A415-042D342107EC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp</RootNamespace>
+    <AssemblyName>WindowsFormsApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.114.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.114.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBTarefasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTarefasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBTarefasDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTarefasDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddCompromises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddCompromises.Designer.cs">
+      <DependentUpon>FormAddCompromises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddContacts.Designer.cs">
+      <DependentUpon>FormAddContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsAdd\FormAddTasks.Designer.cs">
+      <DependentUpon>FormAddTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteCompromises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteCompromises.Designer.cs">
+      <DependentUpon>FormDeleteCompromises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteContacts.Designer.cs">
+      <DependentUpon>FormDeleteContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsDelete\FormDeleteTasks.Designer.cs">
+      <DependentUpon>FormDeleteTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenCompromise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenCompromise.Designer.cs">
+      <DependentUpon>FormScreenCompromise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenStart.Designer.cs">
+      <DependentUpon>FormScreenStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenTasks.Designer.cs">
+      <DependentUpon>FormScreenTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsScreen\FormScreenContact.Designer.cs">
+      <DependentUpon>FormScreenContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateCompromises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateCompromises.Designer.cs">
+      <DependentUpon>FormUpdateCompromises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateControls.Designer.cs">
+      <DependentUpon>FormUpdateControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsUpdate\FormUpdateTasks.Designer.cs">
+      <DependentUpon>FormUpdateTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsView\FormViewCompromises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsView\FormViewCompromises.Designer.cs">
+      <DependentUpon>FormViewCompromises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsView\FormViewContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsView\FormViewContacts.Designer.cs">
+      <DependentUpon>FormViewContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsView\FormViewTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsView\FormViewTasks.Designer.cs">
+      <DependentUpon>FormViewTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InserNew.cs" />
+    <Compile Include="InsertTask.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormsAdd\FormAddCompromises.resx">
+      <DependentUpon>FormAddCompromises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAdd\FormAddContacts.resx">
+      <DependentUpon>FormAddContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsAdd\FormAddTasks.resx">
+      <DependentUpon>FormAddTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDelete\FormDeleteCompromises.resx">
+      <DependentUpon>FormDeleteCompromises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDelete\FormDeleteContacts.resx">
+      <DependentUpon>FormDeleteContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsDelete\FormDeleteTasks.resx">
+      <DependentUpon>FormDeleteTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsScreen\FormScreenCompromise.resx">
+      <DependentUpon>FormScreenCompromise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsScreen\FormScreenStart.resx">
+      <DependentUpon>FormScreenStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsScreen\FormScreenTasks.resx">
+      <DependentUpon>FormScreenTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsScreen\FormScreenContact.resx">
+      <DependentUpon>FormScreenContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUpdate\FormUpdateCompromises.resx">
+      <DependentUpon>FormUpdateCompromises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUpdate\FormUpdateControls.resx">
+      <DependentUpon>FormUpdateControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsUpdate\FormUpdateTasks.resx">
+      <DependentUpon>FormUpdateTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\FormViewCompromises.resx">
+      <DependentUpon>FormViewCompromises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\FormViewContacts.resx">
+      <DependentUpon>FormViewContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\FormViewTasks.resx">
+      <DependentUpon>FormViewTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="bancoDedados.db" />
+    <None Include="DataBase.db" />
+    <None Include="DBTarefasDataSet.xsc">
+      <DependentUpon>DBTarefasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBTarefasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBTarefasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBTarefasDataSet.xss">
+      <DependentUpon>DBTarefasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBTarefasDataSet1.xsc">
+      <DependentUpon>DBTarefasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBTarefasDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBTarefasDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBTarefasDataSet1.xss">
+      <DependentUpon>DBTarefasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="NewDataBase.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
