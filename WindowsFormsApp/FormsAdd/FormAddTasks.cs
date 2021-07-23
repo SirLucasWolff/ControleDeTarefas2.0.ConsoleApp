@@ -15,14 +15,15 @@ namespace WindowsFormsApp
 {
     public partial class FormAddTasks : Form
     {
+        #region "Connections, Strings and the start of Add task"
+
         public FormAddTasks()
         {
             InitializeComponent();
             button1.Enabled = false;
             txtTaskAdded.Visible = false;
-           
         }
-
+        
         public static SQLiteConnection sqliteConnection;
 
         public static SQLiteConnection DbConnection()
@@ -47,27 +48,16 @@ namespace WindowsFormsApp
         public string TaskName { get; private set; }
 
         private string DBAdd = string.Empty;
- 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
+        #endregion
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        #region "Methods"
 
         private void btnAddBackScreenTask_Click(object sender, EventArgs e)
         {
             FormScreenTasks screenTasks = new FormScreenTasks();
             screenTasks.Visible = true;
             this.Close();
-        }
-
-        private void FormAddTasks_Load(object sender, EventArgs e)
-        {
-           
         }
 
         private void btnAddTasks_Click(object sender, EventArgs e)
@@ -103,6 +93,7 @@ namespace WindowsFormsApp
                 command.ExecuteNonQuery();
                 Sql.Close();
 
+                ImportanceLevel = "";
                 txtTaskAdded.Visible = true;
             }
             if (ConfigurationManager.AppSettings["DBSelected"] == "SqlLite")
@@ -135,6 +126,7 @@ namespace WindowsFormsApp
                     Object id = cmd.ExecuteScalar();
                     object Id = Convert.ToInt32(id);
 
+                    ImportanceLevel = "";
                     txtTaskAdded.Visible = true;
                 }
             }
@@ -208,19 +200,6 @@ namespace WindowsFormsApp
             }
         }
 
-        public void HOVER(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void HoverBtnNormal(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void HoverBtnHigh(object sender, EventArgs e)
-        {
-           
-        }
+        #endregion
     }
 }

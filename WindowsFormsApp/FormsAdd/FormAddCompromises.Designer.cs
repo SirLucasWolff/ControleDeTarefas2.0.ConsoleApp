@@ -38,12 +38,10 @@ namespace WindowsFormsApp
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtEndHour = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtStartHour = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSpot = new System.Windows.Forms.TextBox();
@@ -60,6 +58,8 @@ namespace WindowsFormsApp
             this.label14 = new System.Windows.Forms.Label();
             this.txtAddedCompromise = new System.Windows.Forms.Label();
             this.maskedCompromiseDate = new System.Windows.Forms.DateTimePicker();
+            this.txtStartHour = new System.Windows.Forms.MaskedTextBox();
+            this.txtEndHour = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -71,7 +71,7 @@ namespace WindowsFormsApp
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(681, 409);
+            this.label11.Location = new System.Drawing.Point(772, 323);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 17);
             this.label11.TabIndex = 72;
@@ -80,7 +80,7 @@ namespace WindowsFormsApp
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(193, 409);
+            this.label10.Location = new System.Drawing.Point(590, 323);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 17);
             this.label10.TabIndex = 71;
@@ -91,9 +91,9 @@ namespace WindowsFormsApp
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(193, 321);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 17);
+            this.label9.Size = new System.Drawing.Size(103, 17);
             this.label9.TabIndex = 70;
-            this.label9.Text = "Ex. 00000000";
+            this.label9.Text = "Ex. 14/08/2020";
             // 
             // label8
             // 
@@ -157,67 +157,51 @@ namespace WindowsFormsApp
             this.label7.TabIndex = 64;
             this.label7.Text = "Ex. Negócios";
             // 
-            // button2
+            // btnBack
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(541, 532);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 53);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "BACK";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnAddBackScreenCompromise_Click);
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Red;
+            this.btnBack.Location = new System.Drawing.Point(542, 449);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(147, 53);
+            this.btnBack.TabIndex = 63;
+            this.btnBack.Text = "BACK";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnAddBackScreenCompromise_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAdd.Location = new System.Drawing.Point(388, 532);
+            this.btnAdd.Location = new System.Drawing.Point(389, 449);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(147, 53);
             this.btnAdd.TabIndex = 62;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAddedCompromise_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label6.Location = new System.Drawing.Point(595, 389);
+            this.label6.Location = new System.Drawing.Point(705, 301);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 17);
             this.label6.TabIndex = 61;
             this.label6.Text = "End hour";
-            // 
-            // txtEndHour
-            // 
-            this.txtEndHour.Location = new System.Drawing.Point(684, 384);
-            this.txtEndHour.Name = "txtEndHour";
-            this.txtEndHour.Size = new System.Drawing.Size(265, 22);
-            this.txtEndHour.TabIndex = 60;
-            this.txtEndHour.TextChanged += new System.EventHandler(this.txtEndHour_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label5.Location = new System.Drawing.Point(95, 389);
+            this.label5.Location = new System.Drawing.Point(515, 301);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 17);
             this.label5.TabIndex = 59;
             this.label5.Text = "Start hour";
-            // 
-            // txtStartHour
-            // 
-            this.txtStartHour.Location = new System.Drawing.Point(196, 384);
-            this.txtStartHour.Name = "txtStartHour";
-            this.txtStartHour.Size = new System.Drawing.Size(265, 22);
-            this.txtStartHour.TabIndex = 58;
-            this.txtStartHour.TextChanged += new System.EventHandler(this.txtStartHour_TextChanged);
             // 
             // label4
             // 
@@ -276,7 +260,7 @@ namespace WindowsFormsApp
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1055, 437);
+            this.dataGridView1.Size = new System.Drawing.Size(1055, 354);
             this.dataGridView1.TabIndex = 51;
             // 
             // groupBox1
@@ -305,7 +289,7 @@ namespace WindowsFormsApp
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label12.Location = new System.Drawing.Point(38, 481);
+            this.label12.Location = new System.Drawing.Point(75, 391);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(150, 17);
             this.label12.TabIndex = 74;
@@ -314,30 +298,30 @@ namespace WindowsFormsApp
             // rbRemote
             // 
             this.rbRemote.AutoSize = true;
-            this.rbRemote.Location = new System.Drawing.Point(196, 479);
+            this.rbRemote.Location = new System.Drawing.Point(231, 389);
             this.rbRemote.Name = "rbRemote";
             this.rbRemote.Size = new System.Drawing.Size(78, 21);
             this.rbRemote.TabIndex = 75;
             this.rbRemote.TabStop = true;
             this.rbRemote.Text = "Remote";
             this.rbRemote.UseVisualStyleBackColor = true;
-            this.rbRemote.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbRemote.CheckedChanged += new System.EventHandler(this.rbRemote_CheckedChanged);
             // 
             // rbMeeting
             // 
             this.rbMeeting.AutoSize = true;
-            this.rbMeeting.Location = new System.Drawing.Point(280, 479);
+            this.rbMeeting.Location = new System.Drawing.Point(315, 389);
             this.rbMeeting.Name = "rbMeeting";
             this.rbMeeting.Size = new System.Drawing.Size(79, 21);
             this.rbMeeting.TabIndex = 76;
             this.rbMeeting.TabStop = true;
             this.rbMeeting.Text = "Meeting";
             this.rbMeeting.UseVisualStyleBackColor = true;
-            this.rbMeeting.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.rbMeeting.CheckedChanged += new System.EventHandler(this.rbMeeting_CheckedChanged);
             // 
             // txtLink
             // 
-            this.txtLink.Location = new System.Drawing.Point(684, 478);
+            this.txtLink.Location = new System.Drawing.Point(676, 386);
             this.txtLink.Name = "txtLink";
             this.txtLink.Size = new System.Drawing.Size(265, 22);
             this.txtLink.TabIndex = 77;
@@ -348,7 +332,7 @@ namespace WindowsFormsApp
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label13.Location = new System.Drawing.Point(631, 481);
+            this.label13.Location = new System.Drawing.Point(632, 389);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 17);
             this.label13.TabIndex = 78;
@@ -357,7 +341,7 @@ namespace WindowsFormsApp
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(681, 503);
+            this.label14.Location = new System.Drawing.Point(673, 411);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 17);
             this.label14.TabIndex = 79;
@@ -367,7 +351,7 @@ namespace WindowsFormsApp
             // 
             this.txtAddedCompromise.AutoSize = true;
             this.txtAddedCompromise.ForeColor = System.Drawing.Color.Green;
-            this.txtAddedCompromise.Location = new System.Drawing.Point(12, 567);
+            this.txtAddedCompromise.Location = new System.Drawing.Point(20, 483);
             this.txtAddedCompromise.Name = "txtAddedCompromise";
             this.txtAddedCompromise.Size = new System.Drawing.Size(156, 17);
             this.txtAddedCompromise.TabIndex = 108;
@@ -375,16 +359,40 @@ namespace WindowsFormsApp
             // 
             // maskedCompromiseDate
             // 
-            this.maskedCompromiseDate.Location = new System.Drawing.Point(196, 301);
+            this.maskedCompromiseDate.Location = new System.Drawing.Point(194, 296);
             this.maskedCompromiseDate.Name = "maskedCompromiseDate";
             this.maskedCompromiseDate.Size = new System.Drawing.Size(200, 22);
             this.maskedCompromiseDate.TabIndex = 109;
+            // 
+            // txtStartHour
+            // 
+            this.txtStartHour.Location = new System.Drawing.Point(602, 298);
+            this.txtStartHour.Mask = "00:00";
+            this.txtStartHour.Name = "txtStartHour";
+            this.txtStartHour.Size = new System.Drawing.Size(41, 22);
+            this.txtStartHour.TabIndex = 110;
+            this.txtStartHour.ValidatingType = typeof(System.DateTime);
+           
+            this.txtStartHour.TextChanged += new System.EventHandler(this.txtStartHour_TextChanged);
+            // 
+            // txtEndHour
+            // 
+            this.txtEndHour.Location = new System.Drawing.Point(785, 298);
+            this.txtEndHour.Mask = "00:00";
+            this.txtEndHour.Name = "txtEndHour";
+            this.txtEndHour.Size = new System.Drawing.Size(41, 22);
+            this.txtEndHour.TabIndex = 111;
+            this.txtEndHour.ValidatingType = typeof(System.DateTime);
+           
+            this.txtEndHour.TextChanged += new System.EventHandler(this.txtEndHour_TextChanged);
             // 
             // FormAddCompromises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 593);
+            this.ClientSize = new System.Drawing.Size(1082, 509);
+            this.Controls.Add(this.txtEndHour);
+            this.Controls.Add(this.txtStartHour);
             this.Controls.Add(this.maskedCompromiseDate);
             this.Controls.Add(this.txtAddedCompromise);
             this.Controls.Add(this.label14);
@@ -402,12 +410,10 @@ namespace WindowsFormsApp
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtEndHour);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtStartHour);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSpot);
@@ -440,12 +446,10 @@ namespace WindowsFormsApp
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEndHour;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtStartHour;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSpot;
@@ -462,5 +466,7 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label txtAddedCompromise;
         private System.Windows.Forms.DateTimePicker maskedCompromiseDate;
+        private System.Windows.Forms.MaskedTextBox txtStartHour;
+        private System.Windows.Forms.MaskedTextBox txtEndHour;
     }
 }

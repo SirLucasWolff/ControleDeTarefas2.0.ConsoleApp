@@ -6,8 +6,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +22,13 @@ namespace WindowsFormsApp
             InitializeComponent();
             txtAddedCompromise.Visible = false;
             btnAdd.Enabled = false;
+            txtLink.Enabled = false;
+            if (txtStartHour.MaskCompleted == false)
+            {
+                btnAdd.Enabled = false;
+            }
+            if (txtEndHour.MaskCompleted == false)
+                btnAdd.Enabled = false;
         }
         SqlConnection Sql = null;
 
@@ -32,7 +41,6 @@ namespace WindowsFormsApp
             return sqliteConnection;
         }
 
-
         private string Adress = @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBTarefas;Integrated Security=True;Pooling=False";
         private string DBAddCompromise = string.Empty;
 
@@ -43,12 +51,13 @@ namespace WindowsFormsApp
         public DateTime CompromiseDate { get; private set; }
         public string StarHour { get; private set; }
         public string EndHour { get; private set; }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-           
-           
-        }
+        public string KeySubject { get; private set; }
+        public string KeySpot { get; private set; }
+        public string KeyDateTime { get; private set; }
+        public string KeyStartHour { get; private set; }
+        public string KeyEndHour { get; private set; }
+        public string KeyLink { get; private set; }
+        public DateTime Convertion { get; set; }
 
         private void btnAddBackScreenCompromise_Click(object sender, EventArgs e)
         {
@@ -57,7 +66,7 @@ namespace WindowsFormsApp
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddedCompromise_Click(object sender, EventArgs e)
         {
             if (ConfigurationManager.AppSettings["DBSelected"] == "SqlServer")
             {
@@ -143,102 +152,81 @@ namespace WindowsFormsApp
                     cmd.Parameters.AddWithValue("@Starthour", StarHour);
                     cmd.Parameters.AddWithValue("@Endhour", EndHour);
                     cmd.Parameters.AddWithValue("@Kindofcompromise", KindOfCompromise);
-                    
+
                     Object id = cmd.ExecuteScalar();
                     object Id = Convert.ToInt32(id);
                 }
             }
 
-                txtAddedCompromise.Visible = true;
+            txtAddedCompromise.Visible = true;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void rbRemote_CheckedChanged(object sender, EventArgs e)
         {
             KindOfCompromise = "REMOTE";
             if (rbRemote.Checked)
             {
                 txtLink.Enabled = true;
             }
+
+            if (KindOfCompromise == "REMOTE")
+            {
+                if (txtLink.TextLength == 0)
+                {
+                    btnAdd.Enabled = false;
+                }
+
+                if (KeyLink == "NullLink")
+                {
+                    btnAdd.Enabled = false;
+                }
+            }
+
+            EnableTrueBtnAdd();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void rbMeeting_CheckedChanged(object sender, EventArgs e)
         {
             KindOfCompromise = "MEETING";
-           if (rbMeeting.Checked)
+            if (rbMeeting.Checked)
             {
                 txtLink.Enabled = false;
             }
 
-            if (txtSubject.TextLength > 0)
-            {
-                if (txtSpot.TextLength > 0)
-                {
-                    if (maskedCompromiseDate.Value > DateTime.Now)
-                    {
-                        if (txtStartHour.TextLength > 0)
-                        {
-                            if (txtEndHour.TextLength > 0)
-                            {
-                                if (KindOfCompromise == "REMOTE")
-                                {
-                                    if (txtLink.TextLength > 0)
-                                    {
-                                        btnAdd.Enabled = true;
-                                    }
-                                }
-
-                                if (rbMeeting.Checked)
-                                {
-                                    btnAdd.Enabled = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            EnableTrueBtnAdd();
         }
 
         private void txtLink_TextChanged(object sender, EventArgs e)
         {
-            if (txtSubject.TextLength>0)
-            {
-                if (txtSpot.TextLength>0)
-                {
-                    if (maskedCompromiseDate.Value>DateTime.Now)
-                    {
-                        if (txtStartHour.TextLength>0)
-                        {
-                            if (txtEndHour.TextLength>0)
-                            {
-                                if (KindOfCompromise == "REMOTE")
-                                {
-                                    if (txtLink.TextLength>0)
-                                    {
-                                        btnAdd.Enabled = true;
-                                    }
-                                }
-
-                                if (rbMeeting.Checked)
-                                {
-                                    btnAdd.Enabled = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
             if (txtLink.TextLength == 0)
             {
-                btnAdd.Enabled = false;
-                txtAddedCompromise.Visible = false;
+                KeyLink = "NullLink";
+            }
+
+            if (txtLink.TextLength > 0)
+            {
+                KeyLink = "Link";
+
+                EnableTrueBtnAdd();
+            }
+
+            if (KindOfCompromise == "REMOTE")
+            {
+                if (txtLink.TextLength == 0)
+                {
+                    btnAdd.Enabled = false;
+                }
             }
         }
 
-
-
         private void txtSubject_TextChanged(object sender, EventArgs e)
         {
+            if (txtSubject.TextLength > 0)
+            {
+                KeySubject = "Subject";
+                EnableTrueBtnAdd();
+            }
+
             if (txtSubject.TextLength == 0)
             {
                 btnAdd.Enabled = false;
@@ -246,17 +234,61 @@ namespace WindowsFormsApp
             }
         }
 
+        private void EnableTrueBtnAdd()
+        {
+            if (KeySubject == "Subject")
+            {
+                if (KeySpot == "Spot")
+                {
+                    if (maskedCompromiseDate.Value > DateTime.Now)
+                    {
+                        if (txtStartHour.MaskCompleted)
+                        {
+                            if (txtEndHour.MaskCompleted)
+                            {
+                                if (KindOfCompromise == "REMOTE")
+                                {
+                                    if (KeyLink == "Link")
+                                    {
+                                        btnAdd.Enabled = true;
+                                    }
+                                }
+                                if (KindOfCompromise == "MEETING")
+                                {
+                                    btnAdd.Enabled = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void txtSpot_TextChanged(object sender, EventArgs e)
         {
+            if (txtSpot.TextLength > 0)
+            {
+                KeySpot = "Spot";
+                EnableTrueBtnAdd();
+            }
+
             if (txtSpot.TextLength == 0)
             {
                 btnAdd.Enabled = false;
                 txtAddedCompromise.Visible = false;
             }
+
+
         }
 
         private void maskedCompromiseDate_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
+            if (maskedCompromiseDate.Value > DateTime.Now)
+            {
+                KeyDateTime = "DateTime";
+                EnableTrueBtnAdd();
+            }
+
             if (maskedCompromiseDate.Value == DateTime.Now)
             {
                 btnAdd.Enabled = false;
@@ -266,20 +298,23 @@ namespace WindowsFormsApp
 
         private void txtStartHour_TextChanged(object sender, EventArgs e)
         {
-            if (txtStartHour.TextLength == 0)
+            if (txtStartHour.MaskCompleted == false)
             {
                 btnAdd.Enabled = false;
                 txtAddedCompromise.Visible = false;
             }
+            EnableTrueBtnAdd();
         }
 
         private void txtEndHour_TextChanged(object sender, EventArgs e)
         {
-            if (txtEndHour.TextLength == 0)
+            if (txtEndHour.MaskCompleted == false)
             {
                 btnAdd.Enabled = false;
                 txtAddedCompromise.Visible = false;
             }
+            EnableTrueBtnAdd();
         }
+
     }
 }

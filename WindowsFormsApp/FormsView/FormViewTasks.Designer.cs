@@ -61,9 +61,9 @@ namespace WindowsFormsApp
             this.conclusionPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dBTaskBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.txtCount = new System.Windows.Forms.Label();
-            this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
             this.dBCompromiseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBCompromiseTableAdapter = new WindowsFormsApp.DBTarefasDataSetTableAdapters.DBCompromiseTableAdapter();
+            this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dBTaskBindingSource1)).BeginInit();
@@ -78,17 +78,18 @@ namespace WindowsFormsApp
             ((System.ComponentModel.ISupportInitialize)(this.dBTaskBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBTaskBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBCompromiseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(452, 533);
+            this.button2.Location = new System.Drawing.Point(339, 433);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 53);
+            this.button2.Size = new System.Drawing.Size(110, 43);
             this.button2.TabIndex = 38;
             this.button2.Text = "BACK";
             this.button2.UseVisualStyleBackColor = true;
@@ -98,20 +99,23 @@ namespace WindowsFormsApp
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 90);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 73);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1055, 437);
+            this.dataGridView1.Size = new System.Drawing.Size(791, 355);
             this.dataGridView1.TabIndex = 26;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 9);
+            this.groupBox1.Location = new System.Drawing.Point(10, 7);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1055, 75);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(791, 61);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
@@ -120,9 +124,10 @@ namespace WindowsFormsApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(239, 17);
+            this.label1.Location = new System.Drawing.Point(179, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(525, 55);
+            this.label1.Size = new System.Drawing.Size(417, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "VIEWING THE TASKS";
             // 
@@ -233,11 +238,12 @@ namespace WindowsFormsApp
             this.conclusionPercentDataGridViewTextBoxColumn});
             this.advancedDataGridView1.DataSource = this.dBTaskBindingSource;
             this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(22, 101);
+            this.advancedDataGridView1.Location = new System.Drawing.Point(16, 82);
+            this.advancedDataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.RowHeadersWidth = 51;
             this.advancedDataGridView1.RowTemplate.Height = 24;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(1038, 383);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(778, 311);
             this.advancedDataGridView1.TabIndex = 43;
             this.advancedDataGridView1.TimeFilter = false;
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
@@ -308,25 +314,12 @@ namespace WindowsFormsApp
             this.txtCount.AutoSize = true;
             this.txtCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCount.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCount.Location = new System.Drawing.Point(487, 497);
+            this.txtCount.Location = new System.Drawing.Point(365, 404);
+            this.txtCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(77, 17);
+            this.txtCount.Size = new System.Drawing.Size(62, 13);
             this.txtCount.TabIndex = 44;
             this.txtCount.Text = "0: TASKS";
-            // 
-            // advancedDataGridView2
-            // 
-            this.advancedDataGridView2.AutoGenerateContextFilters = true;
-            this.advancedDataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView2.DateWithTime = false;
-            this.advancedDataGridView2.Location = new System.Drawing.Point(100, 101);
-            this.advancedDataGridView2.Name = "advancedDataGridView2";
-            this.advancedDataGridView2.RowHeadersWidth = 51;
-            this.advancedDataGridView2.RowTemplate.Height = 24;
-            this.advancedDataGridView2.Size = new System.Drawing.Size(870, 383);
-            this.advancedDataGridView2.TabIndex = 45;
-            this.advancedDataGridView2.TimeFilter = false;
             // 
             // dBCompromiseBindingSource
             // 
@@ -337,17 +330,33 @@ namespace WindowsFormsApp
             // 
             this.dBCompromiseTableAdapter.ClearBeforeFill = true;
             // 
+            // advancedDataGridView2
+            // 
+            this.advancedDataGridView2.AutoGenerateContextFilters = true;
+            this.advancedDataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView2.DateWithTime = false;
+            this.advancedDataGridView2.Location = new System.Drawing.Point(16, 82);
+            this.advancedDataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.advancedDataGridView2.Name = "advancedDataGridView2";
+            this.advancedDataGridView2.RowHeadersWidth = 51;
+            this.advancedDataGridView2.RowTemplate.Height = 24;
+            this.advancedDataGridView2.Size = new System.Drawing.Size(778, 311);
+            this.advancedDataGridView2.TabIndex = 45;
+            this.advancedDataGridView2.TimeFilter = false;
+            // 
             // FormViewTasks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 594);
+            this.ClientSize = new System.Drawing.Size(810, 483);
             this.Controls.Add(this.advancedDataGridView2);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.advancedDataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormViewTasks";
             this.Text = "FormViewTasks";
             this.Load += new System.EventHandler(this.FormViewTasks_Load);
@@ -366,8 +375,8 @@ namespace WindowsFormsApp
             ((System.ComponentModel.ISupportInitialize)(this.dBTaskBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBTaskBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBCompromiseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,8 +415,8 @@ namespace WindowsFormsApp
         private System.Windows.Forms.DataGridViewTextBoxColumn conclusionPercentDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource dBTaskBindingSource4;
         private System.Windows.Forms.Label txtCount;
-        private ADGV.AdvancedDataGridView advancedDataGridView2;
         private System.Windows.Forms.BindingSource dBCompromiseBindingSource;
         private DBTarefasDataSetTableAdapters.DBCompromiseTableAdapter dBCompromiseTableAdapter;
+        private ADGV.AdvancedDataGridView advancedDataGridView2;
     }
 }

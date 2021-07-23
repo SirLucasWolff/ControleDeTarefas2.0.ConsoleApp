@@ -71,7 +71,7 @@ namespace WindowsFormsApp
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1055, 10);
             this.dataGridView2.TabIndex = 41;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+           
             // 
             // label7
             // 
@@ -118,7 +118,7 @@ namespace WindowsFormsApp
             this.label3.Size = new System.Drawing.Size(147, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "Importance level";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label2
             // 
@@ -181,7 +181,6 @@ namespace WindowsFormsApp
             this.button3.Text = "LOW";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnImportanceLevelLow_Click);
-            this.button3.MouseHover += new System.EventHandler(this.HOVER);
             // 
             // button4
             // 
@@ -193,7 +192,6 @@ namespace WindowsFormsApp
             this.button4.Text = "NORMAL";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.btnImportanceLevelNormal_Click);
-            this.button4.MouseHover += new System.EventHandler(this.HoverBtnNormal);
             // 
             // button5
             // 
@@ -205,7 +203,6 @@ namespace WindowsFormsApp
             this.button5.Text = "HIGH";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.btnImportanceLevelHigh_Click);
-            this.button5.MouseHover += new System.EventHandler(this.HoverBtnHigh);
             // 
             // txtTaskAdded
             // 
@@ -239,7 +236,6 @@ namespace WindowsFormsApp
             this.Name = "FormAddTasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAddTasks";
-            this.Load += new System.EventHandler(this.FormAddTasks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

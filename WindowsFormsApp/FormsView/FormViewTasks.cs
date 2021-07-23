@@ -60,10 +60,8 @@ namespace WindowsFormsApp
             this.dBTaskTableAdapter1.Fill(this.dBTarefasDataSet1.DBTask);
             // TODO: This line of code loads data into the 'dBTarefasDataSet.DBTask' table. You can move, or remove it, as needed.
             this.dBTaskTableAdapter.Fill(this.dBTarefasDataSet.DBTask);
-
         }
 
-       
         private void advancedDataGridView1_FilterStringChanged(object sender, EventArgs e)
         {
             this.dBTaskBindingSource.Filter = this.advancedDataGridView1.FilterString;
